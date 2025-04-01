@@ -1,0 +1,397 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
+function MainComponent() {
+  const [mounted, setMounted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#090402] text-[#A39F9D] font-inter">
+      <nav className="flex justify-between items-center px-4 md:px-20 py-4">
+        <div className="flex items-center space-x-2">
+          <i className="fas fa-robot text-[#F5F5F5] text-xl md:text-2xl"></i>
+          <span className="text-[#F5F5F5] font-space-grotesk text-lg md:text-xl">
+            SocialAI
+          </span>
+        </div>
+        <div className="md:hidden">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-[#F5F5F5] text-xl"
+          >
+            <i className={`fas ${mobileMenuOpen ? "fa-times" : "fa-bars"}`}></i>
+          </button>
+        </div>
+        <div className="hidden md:flex space-x-6">
+          <button className="bg-[#5C5C5C] text-[#F5F5F5] rounded-full px-6 py-2 hover:bg-[#4a4a4a] transition-colors">
+            Login
+          </button>
+          <button className="bg-[#FF5500] text-[#F5F5F5] rounded-full px-6 py-2 hover:bg-[#5C5C5C] transition-colors">
+            Get Started
+          </button>
+        </div>
+        {mobileMenuOpen && (
+          <div className="absolute top-16 left-0 right-0 bg-[#2E2927] p-4 flex flex-col space-y-4 md:hidden z-50">
+            <button className="bg-[#5C5C5C] text-[#F5F5F5] rounded-full px-6 py-2 hover:bg-[#4a4a4a] transition-colors w-full">
+              Login
+            </button>
+            <button className="bg-[#FF5500] text-[#F5F5F5] rounded-full px-6 py-2 hover:bg-[#5C5C5C] transition-colors w-full">
+              Get Started
+            </button>
+          </div>
+        )}
+      </nav>
+
+      <main className="px-4 md:px-20 py-12 md:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <div className="inline-block bg-gradient-to-b from-[#2E2927] to-[#080301] rounded-full px-4 py-1 border border-[#2C2722] mb-4">
+            <span className="text-[#F5F5F5] text-sm">
+              AI-Powered Social Management
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-space-grotesk font-medium bg-gradient-to-b from-[#A39F9D] to-[#F5F5F5] bg-clip-text text-transparent mb-6">
+            Transform Your Social Media Presence with AI
+          </h1>
+
+          <p className="text-xl mb-10">
+            Let artificial intelligence handle your posting, engagement, and
+            analytics across all social platforms
+          </p>
+
+          <div className="flex flex-col md:flex-row justify-center gap-4">
+            <button className="bg-[#FF5500] text-[#F5F5F5] rounded-full px-8 py-3 hover:bg-[#5C5C5C] transition-colors">
+              Start Free Trial
+            </button>
+            <button className="bg-[#5C5C5C] text-[#F5F5F5] rounded-full px-8 py-3 hover:bg-[#4a4a4a] transition-colors">
+              Watch Demo
+            </button>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="mt-20 max-w-6xl mx-auto"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-space-grotesk font-medium bg-gradient-to-b from-[#A39F9D] to-[#F5F5F5] bg-clip-text text-transparent mb-6">
+                Pioneering the Future of Social Media Management
+              </h2>
+              <p className="text-lg mb-6">
+                Founded in 2024, SocialAI combines cutting-edge artificial
+                intelligence with deep social media expertise to revolutionize
+                how brands connect with their audience.
+              </p>
+              <p className="text-lg">
+                Our team of AI specialists and social media strategists work
+                tirelessly to ensure your online presence is always engaging,
+                relevant, and ahead of the curve.
+              </p>
+            </div>
+            <div className="md:w-1/2 grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-lg bg-[#2E2927] text-center">
+                <h4 className="text-[#FF5500] text-3xl font-bold mb-2">500+</h4>
+                <p className="text-[#F5F5F5]">Active Users</p>
+              </div>
+              <div className="p-6 rounded-lg bg-[#2E2927] text-center">
+                <h4 className="text-[#FF5500] text-3xl font-bold mb-2">98%</h4>
+                <p className="text-[#F5F5F5]">Satisfaction Rate</p>
+              </div>
+              <div className="p-6 rounded-lg bg-[#2E2927] text-center">
+                <h4 className="text-[#FF5500] text-3xl font-bold mb-2">24/7</h4>
+                <p className="text-[#F5F5F5]">AI Support</p>
+              </div>
+              <div className="p-6 rounded-lg bg-[#2E2927] text-center">
+                <h4 className="text-[#FF5500] text-3xl font-bold mb-2">50M+</h4>
+                <p className="text-[#F5F5F5]">Posts Generated</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-20 max-w-6xl mx-auto"
+        >
+          <div className="p-8 max-w-4xl mx-auto">
+            <i className="fas fa-quote-left text-[#FF5500] text-4xl mb-6"></i>
+            <p className="text-xl mb-8 text-[#F5F5F5] italic">
+              "SocialAI has completely transformed how we manage our social
+              media presence. The AI-powered content creation is spot-on with
+              our brand voice, and the automated engagement has helped us grow
+              our following by 300% in just three months. It's like having a
+              full social media team working 24/7."
+            </p>
+            <div className="flex items-center justify-end">
+              <div className="text-right">
+                <p className="text-[#F5F5F5] font-medium">Sarah Johnson</p>
+                <p className="text-sm">Marketing Director, TechFlow Inc.</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-20"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div className="p-6 rounded-lg bg-[#2E2927]">
+              <i className="fas fa-magic text-[#FF5500] text-3xl mb-4"></i>
+              <h3 className="text-[#F5F5F5] text-xl mb-2">
+                Smart Content Creation
+              </h3>
+              <p>AI generates engaging posts tailored to your brand voice</p>
+            </div>
+            <div className="p-6 rounded-lg bg-[#2E2927]">
+              <i className="fas fa-chart-line text-[#FF5500] text-3xl mb-4"></i>
+              <h3 className="text-[#F5F5F5] text-xl mb-2">
+                Analytics & Insights
+              </h3>
+              <p>Real-time performance tracking and audience analysis</p>
+            </div>
+            <div className="p-6 rounded-lg bg-[#2E2927]">
+              <i className="fas fa-comments text-[#FF5500] text-3xl mb-4"></i>
+              <h3 className="text-[#F5F5F5] text-xl mb-2">
+                Automated Engagement
+              </h3>
+              <p>Intelligent responses to comments and messages 24/7</p>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-20 max-w-6xl mx-auto"
+        >
+          <div className="p-8 max-w-4xl mx-auto">
+            <i className="fas fa-quote-left text-[#FF5500] text-4xl mb-6"></i>
+            <p className="text-xl mb-8 text-[#F5F5F5] italic">
+              "The analytics capabilities of SocialAI have revolutionized our
+              decision-making process. We can now understand our audience better
+              than ever before, and the AI's ability to adapt content based on
+              performance metrics has increased our engagement rates by 450%.
+              This platform isn't just a tool - it's like having a data
+              scientist and content strategist working around the clock."
+            </p>
+            <div className="flex items-center justify-end">
+              <div className="text-right">
+                <p className="text-[#F5F5F5] font-medium">Michael Chen</p>
+                <p className="text-sm">Head of Digital, GlobalTech Solutions</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={mounted ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mt-20 md:mt-32 max-w-6xl mx-auto"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-space-grotesk font-medium bg-gradient-to-b from-[#A39F9D] to-[#F5F5F5] bg-clip-text text-transparent">
+              Choose Your Plan
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-lg bg-[#2E2927] text-center">
+              <h3 className="text-[#F5F5F5] text-2xl font-medium mb-4">
+                Starter
+              </h3>
+              <div className="text-[#FF5500] text-4xl font-bold mb-6">
+                $29<span className="text-lg">/mo</span>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>5 Social
+                  Accounts
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>100
+                  AI-Generated Posts
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Basic
+                  Analytics
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>24/7
+                  Support
+                </li>
+              </ul>
+              <button className="w-full bg-[#5C5C5C] text-[#F5F5F5] rounded-full px-8 py-3 hover:bg-[#4a4a4a] transition-colors">
+                Get Started
+              </button>
+            </div>
+            <div className="p-8 rounded-lg bg-[#2E2927] text-center relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span className="bg-[#FF5500] text-[#F5F5F5] text-sm px-4 py-1 rounded-full">
+                  Most Popular
+                </span>
+              </div>
+              <h3 className="text-[#F5F5F5] text-2xl font-medium mb-4">
+                Professional
+              </h3>
+              <div className="text-[#FF5500] text-4xl font-bold mb-6">
+                $79<span className="text-lg">/mo</span>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>15 Social
+                  Accounts
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Unlimited
+                  AI Posts
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Advanced
+                  Analytics
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Priority
+                  Support
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Custom
+                  Branding
+                </li>
+              </ul>
+              <button className="w-full bg-[#FF5500] text-[#F5F5F5] rounded-full px-8 py-3 hover:bg-[#5C5C5C] transition-colors">
+                Get Started
+              </button>
+            </div>
+            <div className="p-8 rounded-lg bg-[#2E2927] text-center">
+              <h3 className="text-[#F5F5F5] text-2xl font-medium mb-4">
+                Enterprise
+              </h3>
+              <div className="text-[#FF5500] text-4xl font-bold mb-6">
+                $199<span className="text-lg">/mo</span>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Unlimited
+                  Accounts
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Unlimited
+                  AI Posts
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Custom
+                  Analytics
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>Dedicated
+                  Support
+                </li>
+                <li>
+                  <i className="fas fa-check text-[#FF5500] mr-2"></i>API Access
+                </li>
+              </ul>
+              <button className="w-full bg-[#5C5C5C] text-[#F5F5F5] rounded-full px-8 py-3 hover:bg-[#4a4a4a] transition-colors">
+                Contact Sales
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </main>
+
+      <footer className="bg-[#2E2927] py-8 md:py-12 px-4 md:px-20">
+        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center space-x-2 mb-4 md:mb-6">
+              <i className="fas fa-robot text-[#F5F5F5] text-xl md:text-2xl"></i>
+              <span className="text-[#F5F5F5] font-space-grotesk text-lg md:text-xl">
+                SocialAI
+              </span>
+            </div>
+            <p className="text-sm">
+              Transforming social media management with artificial intelligence
+            </p>
+          </div>
+
+          <div>
+            <h4 className="text-[#F5F5F5] font-medium mb-3 md:mb-4">Product</h4>
+            <ul className="space-y-2 text-sm md:text-base">
+              <li>Features</li>
+              <li>Pricing</li>
+              <li>Enterprise</li>
+              <li>Case Studies</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-[#F5F5F5] font-medium mb-3 md:mb-4">Company</h4>
+            <ul className="space-y-2 text-sm md:text-base">
+              <li>About</li>
+              <li>Careers</li>
+              <li>Blog</li>
+              <li>Contact</li>
+            </ul>
+          </div>
+
+          <div className="col-span-2 md:col-span-1">
+            <h4 className="text-[#F5F5F5] font-medium mb-3 md:mb-4">Connect</h4>
+            <div className="flex space-x-6">
+              <a
+                href="https://x.com/create_xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl md:text-xl"
+              >
+                <i className="fab fa-x-twitter text-[#F5F5F5] hover:text-[#FF5500] transition-colors"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/@createdotxyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl md:text-xl"
+              >
+                <i className="fab fa-youtube text-[#F5F5F5] hover:text-[#FF5500] transition-colors"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/create_xyz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl md:text-xl"
+              >
+                <i className="fab fa-instagram text-[#F5F5F5] hover:text-[#FF5500] transition-colors"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-8 md:mt-12 pt-6 md:pt-8 border-t border-[#5C5C5C] text-xs md:text-sm flex flex-col md:flex-row justify-between items-center">
+          <p>© 2024 SocialAI. All rights reserved.</p>
+          <div className="flex space-x-4 md:space-x-6 mt-4 md:mt-0">
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default MainComponent;
